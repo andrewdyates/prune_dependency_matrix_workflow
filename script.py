@@ -47,7 +47,7 @@ def main(pina_zip=None, outdir=None, gpl_brief=None, gpl_data=None, study_data=N
 
   # Output index results.
   study_id = os.path.basename(gpl_data).partition('.')[0]
-  out_idx_fname = os.path.join(outdir, "%s.symbol_rownums.gt%.2f.txt" % (study_id, percentile))
+  out_idx_fname = os.path.join(outdir, "%s.symbol_rownums.gt%.2f.pina.txt" % (study_id, percentile))
   print "Saving sorted idx list in line format '[row_num]\\t[probe ID]\\t[gene symbol]\\n' to %s" \
       % (out_idx_fname)
   fp = open(out_idx_fname, "w")
