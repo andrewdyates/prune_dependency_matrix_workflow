@@ -36,6 +36,15 @@ def main(pina_zip=None, outdir=None, gpl_brief=None, gpl_data=None, study_data=N
   idxs.sort()
   print "Selected %d variables in PINA gene list." % len(idxs)
 
+  # Assert that selected rows are all in PINA list and are all unique.
+  print "Asserting that all row numbers correspond to unique gene symbols in PINA list."
+  sym_set = set()
+  for i in idxs:
+    s = d['gpl'].get_column(d['varlist'][i], 'GENE_SYMBOL')
+    assert P.is_in(s)
+    assert s not in sym_set
+    sym_set.add(s)
+
   # Output index results.
   study_id = os.path.basename(gpl_data).partition('.')[0]
   out_idx_fname = os.path.join(outdir, "%s.symbol_rownums.gt%.2f.txt" % (study_id, percentile))
@@ -51,6 +60,8 @@ def main(pina_zip=None, outdir=None, gpl_brief=None, gpl_data=None, study_data=N
   print "Saving %d selected rows of data matrix as .tab format as %s" % (len(idxs), out_M_fname)
   masked_npy_to_tab.npy_to_tab( \
     d['M'][idxs, :], open(out_M_fname, 'w'), varlist=[d['varlist'][i] for i in idxs])
+
+  
 
   
 if __name__ == "__main__":
