@@ -1,7 +1,7 @@
 #!/usr/bin/python
 """
 EXAMPLE USE
-python $HOME/prune_dependency_matrix_workflow/script_select_from_raw.py fname_rownums=$HOME/gse7307/GSE7307_GPL570.symbol_rownums.gt0.25.pina.txt fname_rawtab=$HOME/gse7307/GSE7307.raw.tab > $HOME/gse7307/GSE7307_GPL570.raw.symbol_rownums.gt0.25.pina.txt
+python $HOME/prune_dependency_matrix_workflow/script_select_from_raw.py fname_rownums=$HOME/gse7307/GSE7307_GPL570.symbol_rownums.gt0.25.pina.txt fname_rawtab=$HOME/gse7307/GSE7307.raw.tab > $HOME/gse7307/GSE7307_GPL570.raw.gt0.25.pina.tab
 
 """
 import sys
